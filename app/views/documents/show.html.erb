@@ -1,0 +1,13 @@
+<h1><%= @document.title %></h1>
+<%= form_with model: @document, data: { turbo_stream: true }, method: :patch do |form| %>
+  <textarea id="document-content" data-id="<%= @document.id %>" rows="20" style="width: 100%;">
+    <%= @document.content %>
+  </textarea>
+
+  <%= form.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+
+<div id="updates">
+  <%= turbo_stream_from @document %>
+</div>

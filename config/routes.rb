@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  root "documents#index"
+
+  # Resources for documents
+  resources :documents, only: [:index, :show, :update]
+
+  # Action Cable (WebSocket endpoint)
+  mount ActionCable.server => '/cable'
+
 end
