@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_upload_params)
+    @document = Document.new(document_params)
 
     if @document.save
       redirect_to @document, notice: "Document successfully created."
@@ -50,10 +50,6 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:content)
-  end
-
-  def document_upload_params
     params.require(:document).permit(:title, :content, :file)
   end
 end
