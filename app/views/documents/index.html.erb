@@ -5,16 +5,18 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th>Title</th>
+      <th class="w-75">Title</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= link_to document.title, edit_document_path(document), data: { turbo_frame: "_top" }, target: "_top" %></td>
+        <td><%= link_to document.title, document_path(document) %></td>
         <td>
-          <%= link_to "Delete", document_path(document),
+          <%= link_to 'Edit', edit_document_path(document), data: { turbo_frame: "_top" }, target: "_top", class: "btn btn-sm btn-primary" %>
+
+          <%= link_to 'Delete', document_path(document),
                       method: :delete,
                       data: { turbo_method: :delete,
                               turbo_confirm: "Are you sure?" },
