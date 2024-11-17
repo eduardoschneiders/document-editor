@@ -1,0 +1,14 @@
+<h1><%= @document.title %></h1>
+<%= form_with model: @document, data: { turbo_stream: true, controller: 'auto-submit', auto_submit_target: 'form' }, method: :patch do |form| %>
+  <%= form.text_area :content, rows: 20, style: "width: 100%;",
+      data: { id: @document.id, action: "input->auto-submit#update", auto_submit_target: "textarea" } %>
+<% end %>
+
+
+<div id="updates">
+  <%= turbo_stream_from @document %>
+  <p>
+    <strong>Last Updated:</strong>
+    <div id="document_last_updated"> <%= @document.updated_at %> </div>
+  </p>
+</div>

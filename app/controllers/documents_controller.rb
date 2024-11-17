@@ -21,6 +21,10 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
+  def edit
+    @document = Document.find(params[:id])
+  end
+
   def update
     @document = Document.find(params[:id])
     if @document.update(document_params)

@@ -12,7 +12,7 @@
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= link_to document.title, document_path(document) %></td>
+        <td><%= link_to document.title, edit_document_path(document) %></td>
         <td>
           <%= link_to "Delete", document_path(document),
                       method: :delete,
