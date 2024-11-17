@@ -17,7 +17,7 @@ export default class extends Controller {
   startProgress(event) {
     console.log('start')
     const { id } = event.detail;
-    const progressElement = document.createElement("progress");
+    const progressElement = document.getElementById('progress-bar').appendChild(document.createElement("progress"));
     progressElement.id = `progress-${id}`;
     progressElement.max = 100;
     progressElement.value = 0;
