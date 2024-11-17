@@ -1,32 +1,41 @@
-<h1>Documents</h1>
 
-<%= link_to "New Document", new_document_path, class: "btn btn-primary" %>
+  <div class="row">
+    <!-- Header Section -->
+    <div class="col-12">
+      <h1 class="text-center mb-4">Document List</h1>
+    </div>
+  </div>
 
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th class="w-75">Title</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @documents.each do |document| %>
-      <tr>
-        <td><%= link_to document.title, document_path(document) %></td>
-        <td>
-          <%= link_to 'Edit', edit_document_path(document), data: { turbo_frame: "_top" }, target: "_top", class: "btn btn-sm btn-primary" %>
+  <!-- Document List Section -->
+  <div class="row">
+    <div class="col-12">
+      <%= link_to 'Create New Document', new_document_path, class: 'btn btn-primary mb-3' %>
 
-          <%= link_to 'Delete', document_path(document),
-                      method: :delete,
-                      data: { turbo_method: :delete,
-                              turbo_confirm: "Are you sure?" },
-                      class: "btn btn-sm btn-danger" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @documents.each do |document| %>
+              <tr>
+                <td><%= document.id %></td>
+                <td><%= document.title %></td>
+                <td>
+                  <%= link_to 'Show', document_path(document), class: 'btn btn-info btn-sm' %>
+                  <%= link_to 'Edit', edit_document_path(document), data: { turbo_frame: "_top" }, target: "_top", class: 'btn btn-warning btn-sm' %>
+                  <%= link_to 'Delete', document_path(document), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-<div class="pagination">
-  <%= paginate @documents %>
-</div>
+      <%= paginate @documents, class: "pagination justify-content-center" %>
+    </div>
+  </div>
