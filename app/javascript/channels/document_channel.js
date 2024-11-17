@@ -20,12 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
           var divB = document.createElement("div");
 
           divA.innerHTML = documentElement.value;
-          let contentA = divA.innerText.replace(/(\r\n|\n|\r)/gm, "").trim()
-
           divB.innerHTML = data.content;
-          let contentB = divB.innerText.replace(/(\r\n|\n|\r)/gm, "").trim()
 
-          if (contentA != contentB) {
+          if (divA.innerText.trim() != divB.innerText.trim()) {
             documentElement.editor.loadHTML(data.content);
           }
 
@@ -37,12 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     documentElement.addEventListener("input", (event) => {
       clearTimeout(timeoutId);
 
-        timeoutId = setTimeout(() => {
-          // console.log('event.target.value: ', event.target.value)
-          channel.send({ content: event.target.value });
-        }, 3000)
-
-      });
+      timeoutId = setTimeout(() => {
+        channel.send({ content: event.target.value });
+      }, 500)
+    });
 
 
     titleElement.addEventListener("input", (event) => {
