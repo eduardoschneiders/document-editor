@@ -9,3 +9,6 @@ application.register("auto-submit", AutoSubmitController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import UploadProgressController from "./upload_progress_controller"
+application.register("upload-progress", UploadProgressController)

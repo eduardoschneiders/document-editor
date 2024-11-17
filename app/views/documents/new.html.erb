@@ -1,0 +1,19 @@
+<h1>New Document</h1>
+
+<%= form_with model: @document, local: true,data: { controller: "upload-progress" } do |form| %>
+  <div>
+    <%= form.label :title, "Document Title" %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :file, "Upload .txt File" %>
+    <%= form.file_field :file, direct_upload: true, accept: ".txt" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Document", class: "btn btn-primary" %>
+  </div>
+  <div id="progress-bar"></div>
+  <%# <progress id="progress-bar" max="100" value="0">Uploading…</progress> %>
+<% end %>
