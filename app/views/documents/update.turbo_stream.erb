@@ -1,5 +1,8 @@
 <turbo-stream target="updates" action="update">
   <template>
-    <p><strong>Last Updated:</strong> <%= Time.current %></p>
+    <p>
+      <strong>Last Updated:</strong>
+      <div id="document_last_updated"> <%= @document.updated_at %> </div>
+    </p>
   </template>
 </turbo-stream>

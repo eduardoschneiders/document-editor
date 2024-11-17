@@ -1,7 +1,8 @@
 import consumer from "./consumer"
 
 document.addEventListener("DOMContentLoaded", () => {
-  const documentElement = document.getElementById("document-content");
+  const documentElement = document.getElementById("document_content");
+  const UpdateAtElement = document.getElementById("document_last_updated");
 
   if (documentElement) {
     const id = documentElement.dataset.id;
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         received(data) {
           documentElement.value = data.content;
+          UpdateAtElement.textContent = data.updated_at
         },
       }
     );
