@@ -1,4 +1,8 @@
 class DocumentsController < ApplicationController
+  def index
+    @documents = Document.page(params[:page]).per(10)
+  end
+
   def new
     @document = Document.new
   end
@@ -27,6 +31,16 @@ class DocumentsController < ApplicationController
     else
       render :show, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @document = Document.find(params[:id])
+    if @document.destroy
+      flash[:notice] = "Document was successfully deleted."
+    else
+      flash[:alert] = "There was an error deleting the document."
+    end
+    redirect_to documents_path
   end
 
   private

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root "documents#index"
 
   # Resources for documents
-  resources :documents, only: [:new, :create, :index, :show, :update]
+  resources :documents, only: [:new, :create, :index, :show, :update, :destroy]
 
   # Action Cable (WebSocket endpoint)
   mount ActionCable.server => '/cable'
