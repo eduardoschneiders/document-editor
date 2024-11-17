@@ -1,11 +1,26 @@
-<h1>Document Details</h1>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h3 class="card-title">Document Details</h3>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <h5 class="mb-2"><strong>Title:</strong></h5>
+          <p class="lead"><%= @document.title %></p>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @document.title %>
-</p>
+        <div class="mb-3">
+          <h5 class="mb-2"><strong>Content:</strong></h5>
+          <p><%= @document.content %></p>
+        </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @document.content %>
-</p>
+        <div class="mb-3">
+          <%= link_to 'Back to Documents', documents_path, class: 'btn btn-outline-secondary' %>
+          <%= link_to 'Edit', edit_document_path(@document), class: 'btn btn-warning ml-2' %>
+          <%= link_to 'Delete', document_path(@document), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger ml-2' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
