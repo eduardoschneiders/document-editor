@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
   has_one_attached :file
+  has_rich_text :content
 
   before_create :extract_file_content, if: -> { file.attached? && file.content_type == "text/plain" }
 

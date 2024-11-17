@@ -14,3 +14,6 @@ ActiveStorage.start();
 const application = Application.start();
 
 
+
+import "trix"
+import "@rails/actiontext"

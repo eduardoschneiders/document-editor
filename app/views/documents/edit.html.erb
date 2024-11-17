@@ -13,7 +13,8 @@
 
           <div class="form-group">
             <%= form.label :content, class: "form-label" %>
-            <%= form.text_area :content, rows: 20, style: "width: 100%;",
+
+            <%= form.rich_text_area :content, class: "form-control", rows: 20, style: "width: 100%;",
               data: { id: @document.id, action: "input->auto-submit#update", auto_submit_target: "textarea" } %>
           </div>
 
