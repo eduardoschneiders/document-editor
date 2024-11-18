@@ -12,7 +12,7 @@
 
         <div class="mb-3">
           <h5 class="mb-2"><strong>Content:</strong></h5>
-          <p><%= @document.content %></p>
+          <p><%= @document.content.body.html_safe %></p>
         </div>
 
         <div class="mb-3">

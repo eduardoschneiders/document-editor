@@ -110,10 +110,14 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    docx (0.8.0)
+      nokogiri (~> 1.13, >= 1.13.0)
+      rubyzip (~> 2.0)
     drb (2.2.1)
     erubi (1.13.0)
     execjs (2.10.0)
     ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -276,6 +280,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  docx
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails

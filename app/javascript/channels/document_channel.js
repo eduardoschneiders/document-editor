@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (documentElement) {
     const id = documentElement.dataset.id;
-    console.log('id 2: ', id)
 
     const channel = consumer.subscriptions.create(
       { channel: "DocumentChannel", id: id },

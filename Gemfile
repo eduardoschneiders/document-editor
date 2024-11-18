@@ -22,6 +22,8 @@ gem "jsbundling-rails"
 gem "turbo-rails", "~> 1.0"
 gem 'kaminari'
 gem 'bootstrap', '~> 5.3.0'
+gem 'docx'
+
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
